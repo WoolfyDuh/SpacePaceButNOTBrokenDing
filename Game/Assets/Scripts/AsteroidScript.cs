@@ -24,7 +24,7 @@ public class AsteroidScript : MonoBehaviour
         for (int i = 0; i < 4; i++)
         {
             Debug.Log("hit");
-            Vector2 tempVec = (Vector2)transform.position + Vector2.right * 5 * i;
+            Vector2 tempVec = (Vector2)transform.position + Vector2.right * 5 * i; // temporary vector = vector 2, positie van de asteroid plus vector 2 right keer 5 keer i
             Instantiate(astroids[i], tempVec, Quaternion.identity);
             Destroy(gameObject);
         }
