@@ -55,11 +55,8 @@ public class Movement : MonoBehaviour
                 Lives--;
             }
             else if (Lives <= 0){
+                Debug.Log("Lives < 0");
                 StartCoroutine(LoadYourAsyncScene());
-            }
-            else
-            {
-                Reset();
             }
         }
     }

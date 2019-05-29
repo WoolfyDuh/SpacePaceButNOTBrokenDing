@@ -9,9 +9,9 @@ public class ShootScript : MonoBehaviour
     {
     }
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Space)) //Als spatiebalk is ingedrukt
+        if (Input.GetKeyUp(KeyCode.Mouse0)) //Als linkermuisknop is ingedrukt
         {
             BulletAttack();
         }
