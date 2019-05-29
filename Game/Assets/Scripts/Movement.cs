@@ -15,10 +15,10 @@ public class Movement : MonoBehaviour
     void Start()
     {
         spawnpos = transform.position;
-        Lives = 3;	   //DIT IS ONZE LEVENS BOI
-        XVelocity = 100; //DIT IS ONZE ROTATION BOI
-        YVelocity = 25; //DIT IS ONZE MOVEMENT BOI
-        r2d2 = GetComponent<Rigidbody2D>(); //DIT IS ONZE RIGIDBOI
+        Lives = 3;	   //levens
+        XVelocity = 100; //draaisnelheid
+        YVelocity = 25; //bewegingssnelheid
+        r2d2 = GetComponent<Rigidbody2D>(); //rigidbody2D
     }
 
     // Update is called once per frame
@@ -28,29 +28,28 @@ public class Movement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        //MOVEMENT forward
+        //naar voren gaan
         if (Input.GetKey("w"))
         {
             r2d2.AddForce(transform.up * (YVelocity * 50) * Time.deltaTime);
         }
         if (Input.GetKey("s"))
-        {//MOVEMENT BACKWARD
+        {//naar achteren gaan
             r2d2.AddForce(transform.up * -(YVelocity * 50) * Time.deltaTime);
         }
         if (Input.GetKey("d"))
-        { //MOVEMENT LEFT
+        { //naar links draaien
             transform.Rotate(Vector3.forward * -(XVelocity * 3) * Time.deltaTime);
         }
         if (Input.GetKey("a"))
-        {   //MOVEMENT RIGHTO
+        {   //naar rechts draaien
             transform.Rotate(Vector3.forward * (XVelocity * 3) * Time.deltaTime);
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
-        { //DIT HOORT DE SHIT TE STOPPEN ALS DIE EEN ENEMY AANRACKT
-            r2d2.velocity = Vector3.zero;
+        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("EnemyBullet"))
+        {
             if (Lives > 0)
             {
                 Lives--;
@@ -70,14 +69,10 @@ public class Movement : MonoBehaviour
     }
 	IEnumerator LoadYourAsyncScene()
 	{   
-		// The Application loads the Scene in the background as the current Scene runs.
-		// This is particularly good for creating loading screens.
-		// You could also load the Scene by using sceneBuildIndex. In this case Scene2 has
-		// a sceneBuildIndex of 1 as shown in Build Settings.
-
+        // laad de volgende scene
 		AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("End Screen");
 
-		// Wait until the asynchronous scene fully loads
+		// wacht tot de asyncLoad klaar is
 		while (!asyncLoad.isDone)
 		{
 			yield return null;
