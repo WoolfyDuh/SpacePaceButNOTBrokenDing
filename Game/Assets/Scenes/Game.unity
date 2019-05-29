@@ -621,35 +621,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5765863529387011237, guid: 55c0156e3e8c8c44dbdb60880d163c89,
-        type: 3}
-      propertyPath: astroids.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5765863529387011237, guid: 55c0156e3e8c8c44dbdb60880d163c89,
-        type: 3}
-      propertyPath: astroids.Array.data[0]
-      value: 
-      objectReference: {fileID: 5116549877550134895, guid: ae0d1d7ebfe7b9f42a8e05c9e0b9f68c,
-        type: 3}
-    - target: {fileID: 5765863529387011237, guid: 55c0156e3e8c8c44dbdb60880d163c89,
-        type: 3}
-      propertyPath: astroids.Array.data[1]
-      value: 
-      objectReference: {fileID: 5116549877550134895, guid: ae0d1d7ebfe7b9f42a8e05c9e0b9f68c,
-        type: 3}
-    - target: {fileID: 5765863529387011237, guid: 55c0156e3e8c8c44dbdb60880d163c89,
-        type: 3}
-      propertyPath: astroids.Array.data[2]
-      value: 
-      objectReference: {fileID: 5116549877550134895, guid: ae0d1d7ebfe7b9f42a8e05c9e0b9f68c,
-        type: 3}
-    - target: {fileID: 5765863529387011237, guid: 55c0156e3e8c8c44dbdb60880d163c89,
-        type: 3}
-      propertyPath: astroids.Array.data[3]
-      value: 
-      objectReference: {fileID: 5116549877550134895, guid: ae0d1d7ebfe7b9f42a8e05c9e0b9f68c,
-        type: 3}
     - target: {fileID: 4225504752154928179, guid: 55c0156e3e8c8c44dbdb60880d163c89,
         type: 3}
       propertyPath: m_Name
@@ -730,6 +701,35 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5765863529387011237, guid: 55c0156e3e8c8c44dbdb60880d163c89,
+        type: 3}
+      propertyPath: astroids.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5765863529387011237, guid: 55c0156e3e8c8c44dbdb60880d163c89,
+        type: 3}
+      propertyPath: astroids.Array.data[0]
+      value: 
+      objectReference: {fileID: 5116549877550134895, guid: ae0d1d7ebfe7b9f42a8e05c9e0b9f68c,
+        type: 3}
+    - target: {fileID: 5765863529387011237, guid: 55c0156e3e8c8c44dbdb60880d163c89,
+        type: 3}
+      propertyPath: astroids.Array.data[1]
+      value: 
+      objectReference: {fileID: 5116549877550134895, guid: ae0d1d7ebfe7b9f42a8e05c9e0b9f68c,
+        type: 3}
+    - target: {fileID: 5765863529387011237, guid: 55c0156e3e8c8c44dbdb60880d163c89,
+        type: 3}
+      propertyPath: astroids.Array.data[2]
+      value: 
+      objectReference: {fileID: 5116549877550134895, guid: ae0d1d7ebfe7b9f42a8e05c9e0b9f68c,
+        type: 3}
+    - target: {fileID: 5765863529387011237, guid: 55c0156e3e8c8c44dbdb60880d163c89,
+        type: 3}
+      propertyPath: astroids.Array.data[3]
+      value: 
+      objectReference: {fileID: 5116549877550134895, guid: ae0d1d7ebfe7b9f42a8e05c9e0b9f68c,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55c0156e3e8c8c44dbdb60880d163c89, type: 3}
 --- !u!1001 &763860491
@@ -955,7 +955,6 @@ GameObject:
   - component: {fileID: 835303970}
   - component: {fileID: 835303967}
   - component: {fileID: 835303969}
-  - component: {fileID: 835303972}
   m_Layer: 8
   m_Name: Ship
   m_TagString: Player
@@ -1176,25 +1175,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroid: {fileID: 4225504752154928179, guid: 55c0156e3e8c8c44dbdb60880d163c89,
     type: 3}
---- !u!95 &835303972
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 835303964}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e5eee8ecc8e88d2408f0fbcbe3192fcc, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &887453179
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,8 @@ public class Movement : MonoBehaviour
     Vector2 HeldVelocity;
     Rigidbody2D r2d2;
     [SerializeField] private Vector2 spawnpos;
+	private float speedY;
+	private float speedX;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,19 +21,65 @@ public class Movement : MonoBehaviour
         XVelocity = 100; //draaisnelheid
         YVelocity = 25; //bewegingssnelheid
         r2d2 = GetComponent<Rigidbody2D>(); //rigidbody2D
-    }
+		speedY = r2d2.velocity.y;
+		speedX = r2d2.velocity.x;
+
+	}
 
     // Update is called once per frame
     void Update()
     {
 
-    }
-    private void FixedUpdate()
+		Vector3 vel = r2d2.velocity;
+		
+		if (vel.y > 0)
+		{
+			vel.y -= 0.15f;
+
+			r2d2.velocity = vel;
+
+		}
+		if(vel.y < 0)
+		{
+			vel.y += 0.15f;
+
+			r2d2.velocity = vel;
+		}
+		if (vel.x > 0)
+		{
+			vel.x -= 0.18f;
+
+			r2d2.velocity = vel;
+
+		}
+		if (vel.x < 0)
+		{
+			vel.x += 0.18f;
+
+			r2d2.velocity = vel;
+		}
+
+		/*
+		if (speedY > 0 && speedX > 0)
+		{
+			r2d2.AddForce(transform.up * -(YVelocity * 50) );
+			Debug.Log("Pindakaas");
+		}
+		if (speedY < 0 && speedX < 0)
+		{
+			r2d2.AddForce(transform.up * (YVelocity * 50) );
+			Debug.Log("ChocoPasta");
+		}*/
+	}
+		private void FixedUpdate()
     {
         //naar voren gaan
+		
         if (Input.GetKey("w"))
         {
-            r2d2.AddForce(transform.up * (YVelocity * 50) * Time.deltaTime);
+
+		//	r2d2.velocity += new Vector3(transform.up * (YVelocity * 50) * Time.deltaTime)
+          r2d2.AddForce(transform.up * (YVelocity * 50) * Time.deltaTime);// 
         }
         if (Input.GetKey("s"))
         {//naar achteren gaan
