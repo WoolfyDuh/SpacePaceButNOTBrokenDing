@@ -69,7 +69,7 @@ public class Movement : MonoBehaviour
         transform.position = spawnpos;
     }
 	IEnumerator LoadYourAsyncScene()
-	{
+	{   
 		// The Application loads the Scene in the background as the current Scene runs.
 		// This is particularly good for creating loading screens.
 		// You could also load the Scene by using sceneBuildIndex. In this case Scene2 has
