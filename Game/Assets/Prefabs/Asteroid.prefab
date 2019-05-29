@@ -152,3 +152,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e063567dfdc90243a58266f681ea4a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  astroids:
+  - {fileID: 5116549877550134895, guid: ae0d1d7ebfe7b9f42a8e05c9e0b9f68c, type: 3}
+  - {fileID: 5116549877550134895, guid: ae0d1d7ebfe7b9f42a8e05c9e0b9f68c, type: 3}
+  - {fileID: 5116549877550134895, guid: ae0d1d7ebfe7b9f42a8e05c9e0b9f68c, type: 3}
+  - {fileID: 5116549877550134895, guid: ae0d1d7ebfe7b9f42a8e05c9e0b9f68c, type: 3}

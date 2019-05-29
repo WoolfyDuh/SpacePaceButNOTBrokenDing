@@ -21,11 +21,12 @@ public class AsteroidScript : MonoBehaviour
     }
     void Split()
     {
-        for (int i = 0; i > 3; i++)
+        for (int i = 0; i < 4; i++)
         {
             Debug.Log("hit");
-            Vector2 tempVec = (Vector2)transform.position + Vector2.right * i;
-            Instantiate(astroids[i], transform.position, Quaternion.identity);
+            Vector2 tempVec = (Vector2)transform.position + Vector2.right * 5 * i;
+            Instantiate(astroids[i], tempVec, Quaternion.identity);
+            Destroy(gameObject);
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
