@@ -955,6 +955,7 @@ GameObject:
   - component: {fileID: 835303970}
   - component: {fileID: 835303967}
   - component: {fileID: 835303969}
+  - component: {fileID: 835303972}
   m_Layer: 8
   m_Name: Ship
   m_TagString: Player
@@ -1175,6 +1176,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroid: {fileID: 4225504752154928179, guid: 55c0156e3e8c8c44dbdb60880d163c89,
     type: 3}
+--- !u!95 &835303972
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835303964}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e5eee8ecc8e88d2408f0fbcbe3192fcc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &887453179
 GameObject:
   m_ObjectHideFlags: 0
@@ -1710,7 +1730,7 @@ PrefabInstance:
     - target: {fileID: 6610825239035054422, guid: 0888e5d5fe4274e4f94dbe2cd018794f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -19.7
       objectReference: {fileID: 0}
     - target: {fileID: 6610825239035054422, guid: 0888e5d5fe4274e4f94dbe2cd018794f,
         type: 3}
