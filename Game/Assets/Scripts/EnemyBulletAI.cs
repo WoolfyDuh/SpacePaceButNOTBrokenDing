@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemyBulletAI : MonoBehaviour
 {
-    public GameObject player;
-    public Transform target;
+    private GameObject player;
+    private Transform target;
     private float speed = 20f;
     // Start is called before the first frame update
     void Start()

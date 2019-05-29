@@ -5,16 +5,21 @@ using UnityEngine;
 public class ShootAI : MonoBehaviour
 {
     public GameObject bulletPrefab;
+    public Transform target;
+    private bool inTrigger;
     // Start is called before the first frame update
     void Start()
     {
-        
+        inTrigger = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (inTrigger)
+        {
+            transform.up = target.position - transform.position;
+        }
     }
     void BulletAttack()
     {
@@ -26,6 +31,7 @@ public class ShootAI : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             BulletAttack();
+            inTrigger = true;
         }
         Physics2D.IgnoreLayerCollision(11, 12);
     }
