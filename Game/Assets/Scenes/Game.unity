@@ -384,9 +384,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf7d42997315547499afe1dcba254d12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 2575571668816452914, guid: 91784c7539c152a48b4e29916760b88f,
+  bulletPrefab: {fileID: 3578972739435138878, guid: d19a0a0a7ac5cf448aa4cef731bc6fa1,
     type: 3}
   target: {fileID: 835303966}
+  Player: {fileID: 835303964}
 --- !u!212 &475528425
 SpriteRenderer:
   m_ObjectHideFlags: 0

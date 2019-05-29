@@ -7,6 +7,8 @@ public class ShootAI : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform target;
     private bool inTrigger;
+    public GameObject Player;
+    private float speed = 4;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,11 +21,12 @@ public class ShootAI : MonoBehaviour
         if (inTrigger)
         {
             transform.up = target.position - transform.position;
+            transform.position = Vector3.MoveTowards(transform.position, Player.transform.position, speed * Time.deltaTime);
         }
     }
     void BulletAttack()
     {
-        GameObject bPrefab = Instantiate(bulletPrefab, transform.position, Quaternion.identity) as GameObject; //Maakt nieuwe bullet van bulletPrefab, quaternion.identity = geen rotatie, is perfect gelijk aan de wereld
+        Instantiate(bulletPrefab, transform.position, Quaternion.identity); //Maakt nieuwe bullet van bulletPrefab, quaternion.identity = geen rotatie, is perfect gelijk aan de wereld
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
