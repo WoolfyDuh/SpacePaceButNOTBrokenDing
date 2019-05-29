@@ -55,7 +55,7 @@ public class Movement : MonoBehaviour
                 Lives--;
             }
             else if (Lives <= 0){
-                StartCoroutine(LoadYourAsyncScene());
+				LoadDeath();
             }
             else
             {
@@ -77,5 +77,9 @@ public class Movement : MonoBehaviour
 		{
 			yield return null;
 		}
+	}
+	private void LoadDeath()
+	{
+		SceneManager.LoadScene("End Screen");
 	}
 }
