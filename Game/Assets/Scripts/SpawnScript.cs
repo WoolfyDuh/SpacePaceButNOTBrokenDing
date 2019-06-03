@@ -5,10 +5,10 @@ using UnityEngine;
 public class SpawnScript : MonoBehaviour
 {
 
-    [SerializeField] Transform rechterborder;
+    [SerializeField] Transform rechterborder; // Transforms voor alle grenzen
     [SerializeField] Transform linkerborder;
     [SerializeField] Transform bovenborder;
-    [SerializeField] Transform onderborder;
+    [SerializeField] Transform onderborder; 
     // Start is called before the first frame update
     void Start()
     {
@@ -21,18 +21,18 @@ public class SpawnScript : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    IEnumerator Wait() // functie om te wachten
     {
-        if (collision.gameObject.CompareTag("Asteroid"))
-        {
-            Debug.Log("Hit!");
-            StartCoroutine(Wait());
-        }
+
+        yield return new WaitForSecondsRealtime(30);
+        
     }
-    IEnumerator Wait()
+
+    void SpawnCharger()
     {
-        Debug.Log("Hit!");
-        yield return new WaitForSecondsRealtime(5);
-        Debug.Log("5 seconden later!");
+    }
+    void SpawnShooter()
+    {
+
     }
 }
