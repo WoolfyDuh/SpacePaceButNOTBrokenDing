@@ -11,8 +11,8 @@ public class Movement : MonoBehaviour
     Vector2 HeldVelocity;
     Rigidbody2D r2d2;
     [SerializeField] private Vector2 spawnpos;
-	private float speedY;
-	private float speedX;
+    [SerializeField] private float speedY;
+    [SerializeField] private float speedX;
     // Start is called before the first frame update
     void Start()
     {
