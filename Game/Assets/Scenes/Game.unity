@@ -662,6 +662,7 @@ GameObject:
   - component: {fileID: 835303967}
   - component: {fileID: 835303969}
   - component: {fileID: 835303972}
+  - component: {fileID: 835303973}
   m_Layer: 8
   m_Name: Ship
   m_TagString: Player
@@ -880,6 +881,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &835303973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835303964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaec6d0e0292d564c91160434a77ad62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &879170404
 GameObject:
   m_ObjectHideFlags: 0
