@@ -11,8 +11,8 @@ public class Movement : MonoBehaviour
     Vector2 HeldVelocity;
     Rigidbody2D r2d2;
     [SerializeField] private Vector2 spawnpos;
-	private float speedY;
-	private float speedX;
+    [SerializeField] private float speedY;
+    [SerializeField] private float speedX;
     // Start is called before the first frame update
     void Start()
     {
@@ -58,28 +58,14 @@ public class Movement : MonoBehaviour
 
 			r2d2.velocity = vel;
 		}
-
-		/*
-		if (speedY > 0 && speedX > 0)
-		{
-			r2d2.AddForce(transform.up * -(YVelocity * 50) );
-			Debug.Log("Pindakaas");
-		}
-		if (speedY < 0 && speedX < 0)
-		{
-			r2d2.AddForce(transform.up * (YVelocity * 50) );
-			Debug.Log("ChocoPasta");
-		}*/
 	}
 		private void FixedUpdate()
     {
-        //naar voren gaan
+        
 		
         if (Input.GetKey("w"))
-        {
-
-		//	r2d2.velocity += new Vector3(transform.up * (YVelocity * 50) * Time.deltaTime)
-          r2d2.AddForce(transform.up * (YVelocity * 50) * Time.deltaTime);// 
+        {//naar voren gaan
+            r2d2.AddForce(transform.up * (YVelocity * 50) * Time.deltaTime); 
         }
         if (Input.GetKey("s"))
         {//naar achteren gaan
@@ -112,19 +98,15 @@ public class Movement : MonoBehaviour
     {
         transform.position = spawnpos;
     }
-	IEnumerator LoadYourAsyncScene()
-	{   
+    IEnumerator LoadYourAsyncScene()
+    {
         // laad de volgende scene
-		AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("End Screen");
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("End Screen");
 
-		// wacht tot de asyncLoad klaar is
-		while (!asyncLoad.isDone)
-		{
-			yield return null;
-		}
-	}
-	private void LoadDeath()
-	{
-		SceneManager.LoadScene("End Screen");
-	}
+        // wacht tot de asyncLoad klaar is
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+    }
 }
