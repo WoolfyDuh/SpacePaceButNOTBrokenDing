@@ -5,10 +5,10 @@ using UnityEngine;
 public class SpawnScript : MonoBehaviour
 {
 
-    [SerializeField] Transform rechterborder; // Transforms voor alle grenzen
-    [SerializeField] Transform linkerborder;
-    [SerializeField] Transform bovenborder;
-    [SerializeField] Transform onderborder;
+    [SerializeField] private Transform rechterBorder; // Transforms voor alle grenzen
+    [SerializeField] private Transform linkerBorder;
+    [SerializeField] private Transform bovenBorder;
+    [SerializeField] private Transform onderBorder;
     public GameObject charger;
     public GameObject shooter;
     // Start is called before the first frame update
@@ -18,14 +18,6 @@ public class SpawnScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Wait();
-    }
-
-    IEnumerator Wait() // functie om te wachten
-    {
-        SpawnCharger();
-        yield return new WaitForSecondsRealtime(30);
-        SpawnShooter();
     }
 
     void SpawnCharger()

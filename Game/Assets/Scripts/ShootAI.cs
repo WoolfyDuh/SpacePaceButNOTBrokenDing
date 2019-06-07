@@ -9,6 +9,8 @@ public class ShootAI : MonoBehaviour
     private bool inTrigger;
     public GameObject Player;
     private float speed = 4;
+    private float timer = 0;
+    private int lives = 5;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,8 +22,18 @@ public class ShootAI : MonoBehaviour
     {
         if (inTrigger)
         {
+            timer += Time.deltaTime;
             transform.up = target.position - transform.position;
             transform.position = Vector3.MoveTowards(transform.position, Player.transform.position, speed * Time.deltaTime);
+            if(timer > 2)
+            {
+                BulletAttack();
+                timer = 0;
+            }
+        }
+        if (!inTrigger)
+        {
+            timer = 0;
         }
     }
     void BulletAttack()
@@ -33,9 +45,19 @@ public class ShootAI : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            BulletAttack();
             inTrigger = true;
         }
         Physics2D.IgnoreLayerCollision(11, 12);
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            Debug.Log("Hit!");
+            if (lives > 0) {
+                lives--;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 }

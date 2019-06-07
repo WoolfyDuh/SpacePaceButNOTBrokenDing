@@ -9,16 +9,17 @@ public class AnimationScript : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        animator.enabled = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("W"))
+        if (Input.GetKeyDown("w"))
         {
             animator.Play("forward");
         }
-        if (Input.GetKeyUp("W"))
+        if (Input.GetKeyUp("w"))
         {
             animator.enabled = false;
         }

@@ -28,7 +28,6 @@ public class EnemyAIScript : MonoBehaviour
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.gameObject.name);
         if (collision.gameObject.tag == "Player")
         {
             Destroy(collision.gameObject);

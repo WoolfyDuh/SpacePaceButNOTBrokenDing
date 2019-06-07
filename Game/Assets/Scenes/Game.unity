@@ -1982,15 +1982,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: shooter
       objectReference: {fileID: 0}
+    - target: {fileID: 7769513493684819743, guid: 09a45d4fb5a52034dabddf40b0ba2fb7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 7769513493684819813, guid: 09a45d4fb5a52034dabddf40b0ba2fb7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -26.474
+      value: -44.7
       objectReference: {fileID: 0}
     - target: {fileID: 7769513493684819813, guid: 09a45d4fb5a52034dabddf40b0ba2fb7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.369
+      value: -4.91
       objectReference: {fileID: 0}
     - target: {fileID: 7769513493684819813, guid: 09a45d4fb5a52034dabddf40b0ba2fb7,
         type: 3}
