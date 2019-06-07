@@ -21,9 +21,15 @@ public class AsteroidScript : MonoBehaviour
     }
     void Split()
     {
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 2; i++)
         {
             Vector2 tempVec = (Vector2)transform.position + Vector2.right * 5 * i; // temporary vector = vector 2, positie van de asteroid plus vector 2 right keer 5 keer i
+            Instantiate(astroids[i], tempVec, Quaternion.identity);
+            Destroy(gameObject);
+        }
+        for (int i = 0; i < 2; i++)
+        {
+            Vector2 tempVec = (Vector2)transform.position + Vector2.down * 5 + Vector2.right * 5 * i; // temporary vector = vector 2, positie van de asteroid plus vector 2 right keer 5 keer i
             Instantiate(astroids[i], tempVec, Quaternion.identity);
             Destroy(gameObject);
         }
