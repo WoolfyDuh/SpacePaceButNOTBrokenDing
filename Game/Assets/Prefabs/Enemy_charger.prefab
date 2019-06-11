@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3275617906636201656}
   - component: {fileID: 3275617906636201638}
   - component: {fileID: 3275617906636201639}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Enemy_charger
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -166,5 +166,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20daba2929e42e641bdb9a62f9d3ed32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
   target: {fileID: 0}
