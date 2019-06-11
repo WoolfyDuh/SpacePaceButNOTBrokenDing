@@ -48,16 +48,20 @@ public class ShootAI : MonoBehaviour
             inTrigger = true;
         }
         Physics2D.IgnoreLayerCollision(11, 12);
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
         if (collision.gameObject.CompareTag("Bullet"))
-        {
-            Debug.Log("Hit!");
-            if (lives > 0) {
+        { 
+            if (lives > 0)
+            {
                 lives--;
             }
             else
             {
                 Destroy(gameObject);
             }
+            Destroy(collision.gameObject);
         }
     }
 }
