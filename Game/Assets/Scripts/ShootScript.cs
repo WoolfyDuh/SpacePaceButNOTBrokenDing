@@ -5,6 +5,7 @@ using UnityEngine;
 public class ShootScript : MonoBehaviour
 {
     public GameObject bulletPrefab;
+    public GameObject player;
     private void Start()
     {
     }
@@ -19,7 +20,7 @@ public class ShootScript : MonoBehaviour
 
     void BulletAttack()
     {
-        GameObject bPrefab = Object.Instantiate(bulletPrefab, transform.position, Quaternion.identity) as GameObject; //Maakt nieuwe bullet van bulletPrefab, quaternion.identity = geen rotatie, is perfect gelijk aan de wereld 
+        Instantiate(bulletPrefab, transform.position, transform.rotation); //Maakt nieuwe bullet van bulletPrefab, quaternion.identity = geen rotatie, is perfect gelijk aan de wereld
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
