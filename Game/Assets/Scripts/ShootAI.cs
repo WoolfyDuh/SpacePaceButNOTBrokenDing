@@ -11,6 +11,7 @@ public class ShootAI : MonoBehaviour
     private float speed = 4;
     private float timer = 0;
     private int lives = 5;
+    public float lifeTime = 30;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,13 @@ public class ShootAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        timer += Time.deltaTime;
+        if (timer > lifeTime)
+        {
+            Destroy(this.gameObject);
+            timer = 0;
+        }
         if (inTrigger)
         {
             timer += Time.deltaTime;

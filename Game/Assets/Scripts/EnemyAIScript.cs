@@ -8,21 +8,26 @@ public class EnemyAIScript : MonoBehaviour
     private GameObject Player;
     private float speed;
     public Transform target;
+    public float lifeTime = 30;
+    private float timer = 0;
     // Start is called before the first frame update
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
         speed = 4;
         startPos = transform.position;
-        if (!Player)
-        {
-            Player = GameObject.Find("Player");
-        }
+        target = Player.transform;
     }
 
     // Update is called once per frame
     void Update()
     {
+        timer += Time.deltaTime;
+        if (timer > lifeTime)
+        {
+            Destroy(this.gameObject);
+            timer = 0;
+        }
         transform.up = target.position - transform.position;
         transform.position = Vector3.MoveTowards(transform.position, Player.transform.position, speed * Time.deltaTime);
     }
