@@ -11,6 +11,7 @@ TagManager:
   - EnemyBullet
   - Bullet
   - ShooterEnemy
+  - AsteroidPiece
   layers:
   - Default
   - TransparentFX
