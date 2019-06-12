@@ -8,7 +8,7 @@ public class ChargerAI : MonoBehaviour
     private GameObject Player;
     private float speed;
     public Transform target;
-    public float lifeTime = 30;
+    public float lifeTime = 15;
     private float timer = 0;
     // Start is called before the first frame update
     void Start()
@@ -37,6 +37,10 @@ public class ChargerAI : MonoBehaviour
         {
             Destroy(collision.gameObject);
             Destroy(gameObject);
+        }
+        if(collision.gameObject.tag == "Border")
+        {
+            Destroy(this.gameObject);
         }
     }
 }

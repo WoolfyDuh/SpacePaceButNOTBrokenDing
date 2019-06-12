@@ -29,9 +29,9 @@ public class SpawnScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
+        timer += Time.deltaTime + Random.Range(0,10);
         timer2 += Time.deltaTime;
-        if (timer > Random.Range(0, 10))
+        if (timer > Random.Range(10, 30))
         {
             SpawnCharger();
             timer = 0;
@@ -47,7 +47,7 @@ public class SpawnScript : MonoBehaviour
     {
         Vector3 pos = new Vector3(
             Random.Range(leftBorder.transform.position.x, rightBorder.transform.position.x),
-            Random.Range(leftBorder.transform.position.y, rightBorder.transform.position.y),
+            Random.Range(topBorder.transform.position.y, botBorder.transform.position.y),
             Random.Range(botBorder.transform.position.z, topBorder.transform.position.z));
        Instantiate(charger, pos, Quaternion.identity);
     }
