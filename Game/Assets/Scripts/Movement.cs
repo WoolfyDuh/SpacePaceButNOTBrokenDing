@@ -29,40 +29,30 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-		Vector3 vel = r2d2.velocity;
-		
+		Vector3 vel = r2d2.velocity;	
 		if (vel.y > 0)
 		{
 			vel.y -= 0.15f;
-
-			r2d2.velocity = vel;
-
+            r2d2.velocity = vel;
 		}
 		if(vel.y < 0)
 		{
-			vel.y += 0.15f;
-
+            vel.y += 0.15f;
 			r2d2.velocity = vel;
 		}
 		if (vel.x > 0)
 		{
 			vel.x -= 0.18f;
-
 			r2d2.velocity = vel;
-
 		}
 		if (vel.x < 0)
 		{
 			vel.x += 0.18f;
-
 			r2d2.velocity = vel;
 		}
 	}
-		private void FixedUpdate()
+	private void FixedUpdate()
     {
-        
-		
         if (Input.GetKey("w"))
         {//naar voren gaan
             r2d2.AddForce(transform.up * (YVelocity * 50) * Time.deltaTime); 

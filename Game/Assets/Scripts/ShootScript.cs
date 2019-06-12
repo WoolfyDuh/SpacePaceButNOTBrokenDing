@@ -5,13 +5,14 @@ using UnityEngine;
 public class ShootScript : MonoBehaviour
 {
     public GameObject bulletPrefab;
+    public GameObject player;
     private void Start()
     {
     }
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Mouse0)) //Als linkermuisknop is ingedrukt
+        if (Input.GetKeyUp(KeyCode.Space)) //Als linkermuisknop is ingedrukt
         {
             BulletAttack();
         }
@@ -19,7 +20,7 @@ public class ShootScript : MonoBehaviour
 
     void BulletAttack()
     {
-        GameObject bPrefab = Object.Instantiate(bulletPrefab, transform.position, Quaternion.identity) as GameObject; //Maakt nieuwe bullet van bulletPrefab, quaternion.identity = geen rotatie, is perfect gelijk aan de wereld 
+        Instantiate(bulletPrefab, transform.position, transform.rotation); //Maakt nieuwe bullet van bulletPrefab, quaternion.identity = geen rotatie, is perfect gelijk aan de wereld
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
