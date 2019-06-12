@@ -24,14 +24,14 @@ public class AsteroidScript : MonoBehaviour
     {
         for (int i = 0; i < 2; i++)
         {
-            Vector2 tempVec = (Vector2)transform.position + Vector2.right * i; // temporary vector = vector 2, positie van de asteroid plus vector 2 right keer 5 keer i
-            Instantiate(astroids[Random.Range(0,2)], tempVec, Quaternion.identity);
+            Vector2 tempVec = (Vector2)transform.position + Vector2.right * i; // temporary vector
+            Instantiate(astroids[Random.Range(0,3)], tempVec, Quaternion.identity);
             Destroy(gameObject);
         }
         for (int i = 0; i < 2; i++)
         {
-            Vector2 tempVec = (Vector2)transform.position + Vector2.down + Vector2.right * 5 * i; // temporary vector = vector 2, positie van de asteroid plus vector 2 right keer 5 keer i
-            Instantiate(astroids[Random.Range(0,2)], tempVec, Quaternion.identity);
+            Vector2 tempVec = (Vector2)transform.position + Vector2.down + Vector2.right * 2 * i; // temporary vector
+            Instantiate(astroids[Random.Range(0,3)], tempVec, Quaternion.identity);
             Destroy(gameObject);
         }
     }
