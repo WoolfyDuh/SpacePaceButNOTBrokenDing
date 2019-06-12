@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3275617906636201657}
   - component: {fileID: 3275617906636201656}
   - component: {fileID: 3275617906636201638}
-  - component: {fileID: 3275617906636201639}
+  - component: {fileID: 2540570725740041305}
   m_Layer: 11
   m_Name: Enemy_charger
   m_TagString: Enemy
@@ -154,7 +154,7 @@ PolygonCollider2D:
       - {x: 0.07, y: -0.035}
       - {x: 0.049999997, y: -0.055}
       - {x: 0.06, y: -0.065}
---- !u!114 &3275617906636201639
+--- !u!114 &2540570725740041305
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -167,3 +167,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  lifeTime: 30

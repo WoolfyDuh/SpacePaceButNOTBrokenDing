@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAIScript : MonoBehaviour
+public class ChargerAI : MonoBehaviour
 {
     private Vector3 startPos;
     private GameObject Player;

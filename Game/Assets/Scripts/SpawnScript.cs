@@ -13,6 +13,7 @@ public class SpawnScript : MonoBehaviour
     public GameObject shooter;
     private GameObject border;
     private float timer = 0;
+    private float timer2 = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,11 +30,16 @@ public class SpawnScript : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if (timer > 10)
+        timer2 += Time.deltaTime;
+        if (timer > Random.Range(0, 10))
         {
             SpawnCharger();
-            SpawnShooter();
             timer = 0;
+        }
+        if(timer2 > Random.Range(10, 20))
+        {
+            SpawnShooter();
+            timer2 = 0;
         }
     }
 
@@ -41,7 +47,7 @@ public class SpawnScript : MonoBehaviour
     {
         Vector3 pos = new Vector3(
             Random.Range(leftBorder.transform.position.x, rightBorder.transform.position.x),
-            0,
+            Random.Range(leftBorder.transform.position.y, rightBorder.transform.position.y),
             Random.Range(botBorder.transform.position.z, topBorder.transform.position.z));
        Instantiate(charger, pos, Quaternion.identity);
     }
