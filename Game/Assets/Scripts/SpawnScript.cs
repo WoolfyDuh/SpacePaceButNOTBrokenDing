@@ -14,10 +14,14 @@ public class SpawnScript : MonoBehaviour
     private GameObject border;
     private float timer = 0;
     private float timer2 = 0;
+    private GameObject[] chargerCount;
+    private int chargerAmount;
+    private GameObject[] shooterCount;
+    private int shooterAmount;
     // Start is called before the first frame update
     void Start()
     {
-        border = GameObject.Find("Bovengrens");
+        border = GameObject.Find("Bovengrens"); // Geeft elke transform de waarde van de borders' transform
         topBorder = border.transform;
         border = GameObject.Find("Rechtergrens");
         rightBorder = border.transform;
@@ -29,18 +33,23 @@ public class SpawnScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime + Random.Range(0,10);
-        timer2 += Time.deltaTime;
-        if (timer > Random.Range(10, 30))
+        timer += Time.deltaTime + Random.Range(0,10); // +1 elke seconde en +1-10 per seconden
+        timer2 += Time.deltaTime; // +1 elke seconde
+        if (timer > Random.Range(10, 30) && chargerAmount < 20) // als timer groter is dan 10-30, spawn charger
         {
             SpawnCharger();
             timer = 0;
         }
-        if(timer2 > Random.Range(10, 20))
+        if(timer2 > Random.Range(10, 20) && shooterAmount < 20) // als timer groter is dan 10-20, spawn shooter
         {
             SpawnShooter();
             timer2 = 0;
         }
+
+        chargerCount = GameObject.FindGameObjectsWithTag("Enemy");
+        chargerAmount = chargerCount.Length;
+        shooterCount = GameObject.FindGameObjectsWithTag("ShooterEnemy");
+        shooterAmount = shooterCount.Length;
     }
 
     void SpawnCharger()
