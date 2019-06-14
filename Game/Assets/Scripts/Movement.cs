@@ -18,8 +18,8 @@ public class Movement : MonoBehaviour
     {
         spawnpos = transform.position;
         Lives = 3;	   //levens
-        XVelocity = 100; //draaisnelheid
-        YVelocity = 25; //bewegingssnelheid
+        XVelocity = 50; //draaisnelheid
+        YVelocity = 20; //bewegingssnelheid
         r2d2 = GetComponent<Rigidbody2D>(); //rigidbody2D
 		speedY = r2d2.velocity.y;
 		speedX = r2d2.velocity.x;
