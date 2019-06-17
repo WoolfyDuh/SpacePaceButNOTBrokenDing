@@ -18,7 +18,7 @@ public class Movement : MonoBehaviour
     {
         spawnpos = transform.position;
         Lives = 3;	   //levens
-        XVelocity = 50; //draaisnelheid
+        XVelocity = 30; //draaisnelheid
         YVelocity = 20; //bewegingssnelheid
         r2d2 = GetComponent<Rigidbody2D>(); //rigidbody2D
 		speedY = r2d2.velocity.y;
@@ -80,7 +80,8 @@ public class Movement : MonoBehaviour
             }
             else if (Lives <= 0){
                 Debug.Log("Lives < 0");
-                StartCoroutine(LoadYourAsyncScene());
+				SceneManager.LoadScene("End Screen"); //load gewoon direct de scene in plaats van de coroutine doen
+                //StartCoroutine(LoadYourAsyncScene());
             }
         }
     }

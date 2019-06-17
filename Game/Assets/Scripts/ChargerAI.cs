@@ -14,7 +14,7 @@ public class ChargerAI : MonoBehaviour
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
-        speed = 4;
+        speed = 8;
         startPos = transform.position;
         target = Player.transform;
     }
@@ -33,9 +33,9 @@ public class ChargerAI : MonoBehaviour
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.collider.CompareTag("Player"))
         {
-            Destroy(collision.gameObject);
+            //Destroy(collision.gameObject);
             Destroy(gameObject);
         }
         if(collision.gameObject.tag == "Border")
