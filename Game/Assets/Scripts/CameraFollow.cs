@@ -21,12 +21,9 @@ public class CameraFollow : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (followTarget)
-        {
             Vector3 delta = followTarget.transform.position - camera.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, cameraZ));
             Vector3 destination = transform.position + delta;
             destination.z = cameraZ;
             transform.position = Vector3.SmoothDamp(transform.position, destination, ref velocity, dampTime);
-        }
     }
 }

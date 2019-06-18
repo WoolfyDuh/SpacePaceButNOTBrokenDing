@@ -5,18 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField] private int Lives;
-    [SerializeField] private float XVelocity;
-    [SerializeField] private float YVelocity;
-    Vector2 HeldVelocity;
-    Rigidbody2D r2d2;
-    [SerializeField] private Vector2 spawnpos;
-    [SerializeField] private float speedY;
-    [SerializeField] private float speedX;
+    private int Lives;
+    private float XVelocity;
+    private float YVelocity;
+    private Vector2 HeldVelocity;
+    private Rigidbody2D r2d2;
+    private float speedY;
+    private float speedX;
     // Start is called before the first frame update
     void Start()
     {
-        spawnpos = transform.position;
         Lives = 3;	   //levens
         XVelocity = 30; //draaisnelheid
         YVelocity = 20; //bewegingssnelheid
@@ -84,10 +82,6 @@ public class Movement : MonoBehaviour
                 //StartCoroutine(LoadYourAsyncScene());
             }
         }
-    }
-    private void Reset()
-    {
-        transform.position = spawnpos;
     }
     IEnumerator LoadYourAsyncScene()
     {
