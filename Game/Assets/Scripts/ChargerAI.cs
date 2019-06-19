@@ -37,8 +37,9 @@ public class ChargerAI : MonoBehaviour
         {
             //Destroy(collision.gameObject);
             Destroy(gameObject);
+
         }
-        if(collision.gameObject.tag == "Border")
+        if(collision.gameObject.CompareTag("Border"))
         {
             Destroy(this.gameObject);
         }
