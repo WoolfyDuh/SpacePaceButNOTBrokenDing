@@ -51,6 +51,10 @@ public class ChargerAI : MonoBehaviour
             Destroy(collision.gameObject);
             Destroy(this.gameObject);
         }
+        if (collision.collider.CompareTag("Player"))
+        {
+            Destroy(this.gameObject);
+        }
     }
     void boolTrue()
     {
