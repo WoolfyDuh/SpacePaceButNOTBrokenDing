@@ -29,7 +29,7 @@ public class AsteroidScript : MonoBehaviour
         }
         for (int i = 0; i < 2; i++)
         {
-            Vector2 tempVec = (Vector2)transform.position + Vector2.down + Vector2.right * 2 * i; // temporary vector
+            Vector2 tempVec = (Vector2)transform.position + Vector2.down + Vector2.right * i; // temporary vector
             Instantiate(astroids[Random.Range(0,3)], tempVec, Quaternion.identity);
             Destroy(gameObject);
         }
@@ -39,6 +39,12 @@ public class AsteroidScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Bullet"))
         {
             Split();
+        }
+        if (collision.gameObject.tag == "Enemy")
+        {
+            Destroy(gameObject);
+            Destroy(this.gameObject);
+
         }
     }
 }

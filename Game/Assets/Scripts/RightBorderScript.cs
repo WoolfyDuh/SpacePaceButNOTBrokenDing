@@ -22,7 +22,6 @@ public class RightBorderScript : MonoBehaviour
 	if (other.CompareTag("Player"))
 		{ float yPos = other.gameObject.transform.position.y;
 			other.transform.position = new Vector3(-290,yPos,0);
-			Debug.Log("krijg de tering jamiro");
 		}	
 	}
 }

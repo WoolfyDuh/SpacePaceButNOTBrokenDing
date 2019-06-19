@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 5887323252334350497}
   - component: {fileID: 2212703195696152466}
   - component: {fileID: 2212703195696152467}
-  m_Layer: 0
+  - component: {fileID: -162498915876800394}
+  m_Layer: 14
   m_Name: AsteroidPiece2
   m_TagString: AsteroidPiece
   m_Icon: {fileID: 0}
@@ -115,3 +116,24 @@ PolygonCollider2D:
       - {x: 0.275, y: -0.345}
       - {x: 0.315, y: -0.285}
       - {x: 0.345, y: -0.225}
+--- !u!50 &-162498915876800394
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2212703195696152468}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4

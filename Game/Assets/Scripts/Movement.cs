@@ -5,18 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField] private int Lives;
-    [SerializeField] private float XVelocity;
-    [SerializeField] private float YVelocity;
-    Vector2 HeldVelocity;
-    Rigidbody2D r2d2;
-    [SerializeField] private Vector2 spawnpos;
-    [SerializeField] private float speedY;
-    [SerializeField] private float speedX;
+    private int Lives;
+    private float XVelocity;
+    private float YVelocity;
+    private Vector2 HeldVelocity;
+    private Rigidbody2D r2d2;
+    private float speedY;
+    private float speedX;
+    private Animator anim;
     // Start is called before the first frame update
     void Start()
     {
-        spawnpos = transform.position;
+        anim = GetComponent<Animator>();
         Lives = 3;	   //levens
         XVelocity = 30; //draaisnelheid
         YVelocity = 20; //bewegingssnelheid
@@ -55,7 +55,7 @@ public class Movement : MonoBehaviour
     {
         if (Input.GetKey("w"))
         {//naar voren gaan
-            r2d2.AddForce(transform.up * (YVelocity * 50) * Time.deltaTime); 
+            r2d2.AddForce(transform.up * (YVelocity * 50) * Time.deltaTime);
         }
         if (Input.GetKey("s"))
         {//naar achteren gaan
@@ -69,6 +69,7 @@ public class Movement : MonoBehaviour
         {   //naar rechts draaien
             transform.Rotate(Vector3.forward * (XVelocity * 3) * Time.deltaTime);
         }
+        Animate();
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -85,10 +86,6 @@ public class Movement : MonoBehaviour
             }
         }
     }
-    private void Reset()
-    {
-        transform.position = spawnpos;
-    }
     IEnumerator LoadYourAsyncScene()
     {
         // laad de volgende scene
@@ -98,6 +95,45 @@ public class Movement : MonoBehaviour
         while (!asyncLoad.isDone)
         {
             yield return null;
+        }
+    }
+    void Animate()
+    {
+        if (Input.GetKeyDown("w"))
+        {
+            anim.SetBool("isGoingForward", true);
+            anim.SetBool("isGoingLeft", false);
+            anim.SetBool("isGoingRight", false);
+        }
+        if (Input.GetKeyUp("w"))
+        {
+            anim.SetBool("isGoingForward", false);
+            anim.SetBool("isGoingLeft", false);
+            anim.SetBool("isGoingRight", false);
+        }
+        if (Input.GetKeyDown("a"))
+        {
+            anim.SetBool("isGoingForward", false);
+            anim.SetBool("isGoingLeft", true);
+            anim.SetBool("isGoingRight", false);
+        }
+        if (Input.GetKeyUp("a"))
+        {
+            anim.SetBool("isGoingForward", true);
+            anim.SetBool("isGoingLeft", false);
+            anim.SetBool("isGoingRight", false);
+        }
+        if (Input.GetKeyDown("d"))
+        {
+            anim.SetBool("isGoingForward", false);
+            anim.SetBool("isGoingLeft", false);
+            anim.SetBool("isGoingRight", true);
+        }
+        if (Input.GetKeyUp("d"))
+        {
+            anim.SetBool("isGoingForward", false);
+            anim.SetBool("isGoingLeft", false);
+            anim.SetBool("isGoingRight", false);
         }
     }
 }

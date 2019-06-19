@@ -22,7 +22,6 @@ public class TopBorderScript : MonoBehaviour
 		{
 			float xPos = other.gameObject.transform.position.x;
 			other.transform.position = new Vector3(xPos, -290, 0);
-			Debug.Log("krijg de tering jamiro");
 		}
 	}
 }
