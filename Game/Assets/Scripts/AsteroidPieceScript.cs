@@ -26,6 +26,8 @@ public class AsteroidPieceScript : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Physics2D.IgnoreLayerCollision(8, 14);
+        Physics2D.IgnoreLayerCollision(8, 15);
+        Physics2D.IgnoreLayerCollision(8, 16);
         Physics2D.IgnoreLayerCollision(14, 15);
         Physics2D.IgnoreLayerCollision(14, 16);
         Physics2D.IgnoreLayerCollision(15, 16);

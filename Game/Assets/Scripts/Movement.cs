@@ -17,7 +17,7 @@ public class Movement : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
-        Lives = 3;	   //levens
+        Lives = 3;	    //levens
         XVelocity = 30; //draaisnelheid
         YVelocity = 20; //bewegingssnelheid
         r2d2 = GetComponent<Rigidbody2D>(); //rigidbody2D
@@ -73,28 +73,14 @@ public class Movement : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("EnemyBullet"))
+        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("EnemyBullet")) // haalt een leven eraf
         {
             if (Lives > 0)
             {
                 Lives--;
             }
-            else if (Lives <= 0){
-                Debug.Log("Lives < 0");
+            else if (Lives <= 0)
 				SceneManager.LoadScene("End Screen"); //load gewoon direct de scene in plaats van de coroutine doen
-                //StartCoroutine(LoadYourAsyncScene());
-            }
-        }
-    }
-    IEnumerator LoadYourAsyncScene()
-    {
-        // laad de volgende scene
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("End Screen");
-
-        // wacht tot de asyncLoad klaar is
-        while (!asyncLoad.isDone)
-        {
-            yield return null;
         }
     }
     void Animate()
