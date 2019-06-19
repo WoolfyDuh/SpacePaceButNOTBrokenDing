@@ -33,6 +33,9 @@ public class SpawnScript : MonoBehaviour
         botBorder = border.transform;
         border = GameObject.Find("Linkergrens");
         leftBorder = border.transform;
+        charger = Resources.Load<GameObject>("Prefabs/Enemy_charger");
+        shooter = Resources.Load<GameObject>("Prefabs/Enemy_shooter");
+        asteroid = Resources.Load<GameObject>("Prefabs/Asteroid");
     }
     // Update is called once per frame
     void Update()

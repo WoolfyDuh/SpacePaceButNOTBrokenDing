@@ -25,11 +25,6 @@ public class BulletScript : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        if(col.gameObject.tag ==  "Enemy")
-        {
-            Destroy(col.gameObject);
-            Destroy(gameObject);
-        }
         Physics2D.IgnoreLayerCollision(8, 9);
     }
 }

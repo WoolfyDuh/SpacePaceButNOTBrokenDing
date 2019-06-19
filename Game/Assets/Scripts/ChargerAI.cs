@@ -8,39 +8,47 @@ public class ChargerAI : MonoBehaviour
     private GameObject Player;
     private float speed;
     public Transform target;
-    public float lifeTime = 15;
-    private float timer = 0;
+    private Animator anim;
+    private float animTimer;
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponent<Animator>();
         Player = GameObject.FindGameObjectWithTag("Player");
         speed = 8;
         startPos = transform.position;
         target = Player.transform;
+        anim.SetBool("isDead", false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
-        if (timer > lifeTime)
+        if (anim.GetBool("isDead")) // Kijkt of de charger dood is
         {
-            Destroy(this.gameObject);
-            timer = 0;
+            animTimer += Time.deltaTime;
+            if(animTimer >= 0.5)
+            {
+                Destroy(this.gameObject); // wacht 0.5 seconden voordat hij de charger verwijderd
+            }
         }
-        transform.up = target.position - transform.position;
-        transform.position = Vector3.MoveTowards(transform.position, Player.transform.position, speed * Time.deltaTime);
+        transform.up = target.position - transform.position; // Charger kijkt naar speler
+        transform.position = Vector3.MoveTowards(transform.position, Player.transform.position, speed * Time.deltaTime); // beweegt charger naar speler
     }
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("Player"))
-        {
-            //Destroy(collision.gameObject);
-            Destroy(gameObject);
-        }
         if(collision.gameObject.tag == "Border")
         {
-            Destroy(this.gameObject);
+            boolTrue();
         }
+        if (collision.gameObject.tag == "Bullet")
+        {
+            Destroy(collision.gameObject);
+            boolTrue();
+        }
+    }
+    void boolTrue()
+    {
+        anim.SetBool("isDead", true);
     }
 }
