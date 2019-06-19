@@ -46,6 +46,11 @@ public class ChargerAI : MonoBehaviour
             Destroy(collision.gameObject);
             boolTrue();
         }
+        if (collision.gameObject.tag == "AsteroidPiece")
+        {
+            Destroy(collision.gameObject);
+            Destroy(this.gameObject);
+        }
     }
     void boolTrue()
     {

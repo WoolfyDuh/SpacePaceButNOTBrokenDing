@@ -77,5 +77,10 @@ public class ShootAI : MonoBehaviour
                 anim.SetBool("isDead", true);
             }
         }
+        if(collision.gameObject.tag == "AsteroidPiece")
+        {
+            Destroy(collision.gameObject);
+            Destroy(this.gameObject);
+        }
     }
 }
