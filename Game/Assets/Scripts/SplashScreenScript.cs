@@ -5,17 +5,27 @@ using UnityEngine.SceneManagement;
 
 public class SplashScreenScript : MonoBehaviour
 {
-	float timer = 4f;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	public float targetTime = 4f;
 
-    // Update is called once per frame
-    void Update()
-    {
+	void Update()
+	{
 
-    }
+		targetTime -= Time.deltaTime;
+
+		if (targetTime <= 0.0f)
+		{
+			timerEnded();
+		}
+
+	}
+
+	void timerEnded()
+	{
+		SceneManager.LoadScene("Menu");
+	}
+
+
 }
+
+
 
