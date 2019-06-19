@@ -9,7 +9,7 @@ public class AsteroidScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        astroids[0] = Resources.Load<GameObject>("Prefabs/AsteroidPiece1");
+        astroids[0] = Resources.Load<GameObject>("Prefabs/AsteroidPiece1"); // laad alles uit de resource/prefabs folder
         astroids[1] = Resources.Load<GameObject>("Prefabs/AsteroidPiece2");
         astroids[2] = Resources.Load<GameObject>("Prefabs/AsteroidPiece3");
     }
@@ -19,21 +19,7 @@ public class AsteroidScript : MonoBehaviour
     {
      
     }
-    void Split()
-    {
-        for (int i = 0; i < 2; i++)
-        {
-            Vector2 tempVec = (Vector2)transform.position + Vector2.right * i; // temporary vector
-            Instantiate(astroids[Random.Range(0,3)], tempVec, Quaternion.identity);
-            Destroy(gameObject);
-        }
-        for (int i = 0; i < 2; i++)
-        {
-            Vector2 tempVec = (Vector2)transform.position + Vector2.down + Vector2.right * i; // temporary vector
-            Instantiate(astroids[Random.Range(0,3)], tempVec, Quaternion.identity);
-            Destroy(gameObject);
-        }
-    }
+    
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Bullet"))
@@ -42,9 +28,22 @@ public class AsteroidScript : MonoBehaviour
         }
         if (collision.gameObject.tag == "Enemy")
         {
+            Split();
+        }
+    }
+    void Split()
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            Vector2 tempVec = (Vector2)transform.position + Vector2.right * i; // temporary vector
+            Instantiate(astroids[Random.Range(0, 3)], tempVec, Quaternion.identity);
             Destroy(gameObject);
-            Destroy(this.gameObject);
-
+        }
+        for (int i = 0; i < 2; i++)
+        {
+            Vector2 tempVec = (Vector2)transform.position + Vector2.down + Vector2.right * i; // temporary vector
+            Instantiate(astroids[Random.Range(0, 3)], tempVec, Quaternion.identity);
+            Destroy(gameObject);
         }
     }
 }

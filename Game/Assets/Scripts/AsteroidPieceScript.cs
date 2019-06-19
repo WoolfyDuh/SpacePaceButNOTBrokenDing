@@ -4,27 +4,32 @@ using UnityEngine;
 
 public class AsteroidPieceScript : MonoBehaviour
 {
-    float speed;
+    Vector2 direction;
+    float force;
+    float x;
+    float y;
     // Start is called before the first frame update
     void Start()
     {
-        speed = Random.Range(90, 100);
-        GetComponent<Rigidbody2D>().AddRelativeForce(Random.onUnitSphere * speed);
+        y = Random.Range(-1000, 1000);
+        x = Random.Range(-1000, 1000);
+        direction = new Vector2(y, x);
+        GetComponent<Rigidbody2D>().AddForce(direction);
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Physics2D.IgnoreLayerCollision(8, 14);
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            Destroy(collision.gameObject);
-            Destroy(this.gameObject);
-        }
+        Physics2D.IgnoreLayerCollision(8, 15);
+        Physics2D.IgnoreLayerCollision(8, 16);
+        Physics2D.IgnoreLayerCollision(14, 15);
+        Physics2D.IgnoreLayerCollision(14, 16);
+        Physics2D.IgnoreLayerCollision(15, 16);
     }
 }
