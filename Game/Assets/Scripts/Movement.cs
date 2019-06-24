@@ -1,14 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
-    private int Lives;
-    private float XVelocity;
-    private float YVelocity;
-    private Vector2 HeldVelocity;
+    private int lives;
+    private float xVelocity;
+    private float yVelocity;
+    private Vector2 heldVelocity;
     private Rigidbody2D r2d2;
     private float speedY;
     private float speedX;
@@ -23,13 +24,12 @@ public class Movement : MonoBehaviour
         r2d2 = GetComponent<Rigidbody2D>(); //rigidbody2D
 		speedY = r2d2.velocity.y;
 		speedX = r2d2.velocity.x;
-
 	}
 
     // Update is called once per frame
     void Update()
     {
-		Vector3 vel = r2d2.velocity;	
+		Vector3 vel = r2d2.velocity;
 		if (vel.y > 0)
 		{
 			vel.y -= 0.15f;
@@ -55,11 +55,11 @@ public class Movement : MonoBehaviour
     {
         if (Input.GetKey("w"))
         {//naar voren gaan
-            r2d2.AddForce(transform.up * (YVelocity * 50) * Time.deltaTime);
+            r2d2.AddForce(transform.up * (yVelocity * 50) * Time.deltaTime);
         }
         if (Input.GetKey("s"))
         {//naar achteren gaan
-            r2d2.AddForce(transform.up * -(YVelocity * 50) * Time.deltaTime);
+            r2d2.AddForce(transform.up * -(yVelocity * 50) * Time.deltaTime);
         }
         if (Input.GetKey("d"))
         { //naar links draaien
@@ -75,12 +75,14 @@ public class Movement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("EnemyBullet")) // haalt een leven eraf
         {
-            if (Lives > 0)
+            if (lives > 0)
             {
-                Lives--;
+                lives--;
             }
-            else if (Lives <= 0)
-				SceneManager.LoadScene("End Screen"); //load gewoon direct de scene in plaats van de coroutine doen
+            else
+            {
+                SceneManager.LoadScene("End Screen"); //load gewoon direct de scene in plaats van de coroutine doen
+            }
         }
     }
     void Animate()
