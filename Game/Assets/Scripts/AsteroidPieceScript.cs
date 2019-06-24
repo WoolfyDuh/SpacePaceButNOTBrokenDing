@@ -31,5 +31,10 @@ public class AsteroidPieceScript : MonoBehaviour
         Physics2D.IgnoreLayerCollision(14, 15);
         Physics2D.IgnoreLayerCollision(14, 16);
         Physics2D.IgnoreLayerCollision(15, 16);
+        if(collision.gameObject.tag == "Bullet")
+        {
+            Destroy(collision.gameObject);
+            Destroy(this.gameObject);
+        }
     }
 }
