@@ -10,6 +10,7 @@ public class ScoreScript : MonoBehaviour
     void Start()
     {
         score = 0;
+        SetToHighScore(score);
     }
 
     public float AddScore(float score)
@@ -17,16 +18,17 @@ public class ScoreScript : MonoBehaviour
         score += this.score;
         return score;
     }
-    public float SetToHighScore(float highScore)
+    public float SetToHighScore(float score)
     {
-        if (this.highScore > score)
+        if (score > highScore)
         {
-            return highScore;
+            return this.score;
         }
         else
         {
-            this.highScore = score;
-            return highScore;
+            this.score = highScore;
+            PlayerPrefs.SetFloat("highScore", highScore);
+            return score;
         }
     }
 }
