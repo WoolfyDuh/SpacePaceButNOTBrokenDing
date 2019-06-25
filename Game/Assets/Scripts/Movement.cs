@@ -18,9 +18,9 @@ public class Movement : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
-        Lives = 3;	    //levens
-        XVelocity = 20; //draaisnelheid
-        YVelocity = 25; //bewegingssnelheid
+        lives = 3;      //levens
+		xVelocity = 20; //draaisnelheid
+		yVelocity = 25; //bewegingssnelheid
         r2d2 = GetComponent<Rigidbody2D>(); //rigidbody2D
 		speedY = r2d2.velocity.y;
 		speedX = r2d2.velocity.x;
@@ -63,11 +63,11 @@ public class Movement : MonoBehaviour
         }
         if (Input.GetKey("d"))
         { //naar links draaien
-            transform.Rotate(Vector3.forward * -(XVelocity * 2f) * Time.deltaTime);
+            transform.Rotate(Vector3.forward * -(xVelocity * 2f) * Time.deltaTime);
         }
         if (Input.GetKey("a"))
         {   //naar rechts draaien
-            transform.Rotate(Vector3.forward * (XVelocity * 2) * Time.deltaTime);
+            transform.Rotate(Vector3.forward * (xVelocity * 2) * Time.deltaTime);
         }
         Animate();
     }
