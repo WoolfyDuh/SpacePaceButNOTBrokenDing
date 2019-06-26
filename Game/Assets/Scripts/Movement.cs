@@ -18,7 +18,7 @@ public class Movement : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
-        lives = 3;      //levens
+        lives = 4;      //levens
 		xVelocity = 20; //draaisnelheid
 		yVelocity = 25; //bewegingssnelheid
         r2d2 = GetComponent<Rigidbody2D>(); //rigidbody2D
@@ -48,6 +48,16 @@ public class Movement : MonoBehaviour
 		if (vel.x < 0)
 		{
 			vel.x += 0.18f;
+			r2d2.velocity = vel;
+		}
+		if(vel.y > 100)
+		{
+			vel.y  -= 85f;
+			r2d2.velocity = vel;
+		}
+		if (vel.x > 100)
+		{
+			vel.x  -= 85f;
 			r2d2.velocity = vel;
 		}
 	}
