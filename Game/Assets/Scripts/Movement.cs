@@ -54,14 +54,16 @@ public class Movement : MonoBehaviour
 			vel.x += 0.18f;
 			r2d2.velocity = vel;
 		}
-        if(vel.y > 2f)
-        {
-            vel.y = 2f;
-        }
-        if(vel.x > 2f)
-        {
-            vel.x = 2f;
-        }
+		if(vel.y > 100)
+		{
+			vel.y  -= 85f;
+			r2d2.velocity = vel;
+		}
+		if (vel.x > 100)
+		{
+			vel.x  -= 85f;
+			r2d2.velocity = vel;
+		}
 	}
 	private void FixedUpdate()
     {
