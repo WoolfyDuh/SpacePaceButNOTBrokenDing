@@ -22,9 +22,11 @@ public class SpawnScript : MonoBehaviour
     private int shooterAmount;
     private GameObject[] asteroidCount;
     private int asteroidAmount;
+    private Camera cam;
     // Start is called before the first frame update
     void Start()
     {
+        cam = FindObjectOfType<Camera>();
         border = GameObject.Find("Bovengrens"); // Geeft elke transform de waarde van de borders' transform
         topBorder = border.transform;
         border = GameObject.Find("Rechtergrens");
@@ -73,6 +75,12 @@ public class SpawnScript : MonoBehaviour
             Random.Range(topBorder.transform.position.y, botBorder.transform.position.y),
             Random.Range(botBorder.transform.position.z, topBorder.transform.position.z));
        Instantiate(charger, pos, Quaternion.identity);
+        if(charger.transform.position.x > cam.transform.position.x)
+        {
+        }
+        if (charger.transform.position.y > cam.transform.position.y)
+        {   
+        }
     }
     void SpawnShooter()
     {
@@ -81,6 +89,14 @@ public class SpawnScript : MonoBehaviour
             0,
             Random.Range(botBorder.transform.position.z, topBorder.transform.position.z));
         Instantiate(shooter, pos, Quaternion.identity);
+        if (shooter.transform.position.x > cam.transform.position.x)
+        {
+            
+        }
+        if (shooter.transform.position.y > cam.transform.position.y)
+        {
+
+        }
     }
     void SpawnAsteroid()
     {
@@ -89,5 +105,13 @@ public class SpawnScript : MonoBehaviour
             0,
             Random.Range(botBorder.transform.position.z, topBorder.transform.position.z));
         Instantiate(asteroid, pos, Quaternion.identity);
+        if (asteroid.transform.position.x > cam.transform.position.x)
+        {
+            
+        }
+        if (asteroid.transform.position.y > cam.transform.position.y)
+        {
+
+        }
     }
 }

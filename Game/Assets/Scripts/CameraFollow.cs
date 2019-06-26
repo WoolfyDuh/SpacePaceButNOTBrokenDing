@@ -7,7 +7,7 @@ public class CameraFollow : MonoBehaviour
 
     public GameObject followTarget;
 
-    public float dampTime = 0.15f;
+    public float dampTime = 0;
     private Vector3 velocity = Vector3.zero;
     private float cameraZ = 0;
 

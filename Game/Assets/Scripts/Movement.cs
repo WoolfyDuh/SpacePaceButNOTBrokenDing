@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using TMPro;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
@@ -14,11 +15,14 @@ public class Movement : MonoBehaviour
     private float speedY;
     private float speedX;
     private Animator anim;
+    private TextMeshProUGUI livesText;
     // Start is called before the first frame update
     void Start()
     {
+        livesText = FindObjectOfType<TextMeshProUGUI>();
+        livesText.text = "5";
         anim = GetComponent<Animator>();
-        lives = 3;	    //levens
+        lives = 5;	    //levens
         xVelocity = 20; //draaisnelheid
         yVelocity = 25; //bewegingssnelheid
         r2d2 = GetComponent<Rigidbody2D>(); //rigidbody2D
@@ -50,6 +54,14 @@ public class Movement : MonoBehaviour
 			vel.x += 0.18f;
 			r2d2.velocity = vel;
 		}
+        if(vel.y > 2f)   
+        {
+            vel.y = 2f;
+        }
+        if(vel.x > 2f)
+        {
+            vel.x = 2f;
+        }
 	}
 	private void FixedUpdate()
     {
@@ -77,7 +89,9 @@ public class Movement : MonoBehaviour
         {
             if (lives > 0)
             {
-                lives--;
+                Destroy(collision.gameObject);
+                lives -= 1;
+                livesText.text = lives.ToString();
             }
             else
             {
