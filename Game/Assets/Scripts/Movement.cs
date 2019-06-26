@@ -54,7 +54,7 @@ public class Movement : MonoBehaviour
 			vel.x += 0.18f;
 			r2d2.velocity = vel;
 		}
-        if(vel.y > 2f)   
+        if(vel.y > 2f)
         {
             vel.y = 2f;
         }
